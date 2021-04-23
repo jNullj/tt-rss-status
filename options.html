@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		</style>
+	</head>
+	<body>
+		<h1>TT-RSS Cheacker Settings</h1><br><br>
+
+		<label for="domain">Domain:</label><br>
+		<input type="text" id="domain" value="rss.example.com"><br><br>
+
+		<label for="domain_path">sub directory path: (start/end with a "/")</label><br>
+		<input type="text" id="domain_path" value="/exmple/"><br><br>
+
+		<label for="protocol">Protocol:</label><br>
+		<input type="text" id="protocol" value="https"><br><br>
+
+		<label for="tt_rss_username">Username:</label><br>
+		<input type="text" id="tt_rss_username" value="admin"><br><br>
+
+		<label for="port">Port: set the port of the tt-rss service, if you are not sure set 80 for http and 443 for https</label><br>
+		<input type="text" id="port" value="443"><br><br>
+
+		<label for="interval">Check interval: How many min before the number of unread feed item is checked agian</label><br>
+		<input type="text" id="interval" value="5"><br><br>
+		<div>
+			<p>After saving the new settings the extention will request permision for the relevant domain. This is used for requesting the number of unread feed items only.</p>
+		</div>
+		<input type="button" id="save_me" value="Update Settings">
+	</body>
+	<script src="options.js"></script>
+</html>
