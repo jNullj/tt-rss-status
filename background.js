@@ -53,25 +53,38 @@ function settingsExists(){
 function updateUnread(callback){
 	if (!settingsExists()) {
 		console.log('updateUnread stopped, missing settings');
+		if(callback){
+			callback();
+		}
 		return;
 	} // if user didnt finish setup dont make a request
-	request = new XMLHttpRequest();
 	url = protocol +"://"+ domain +":"+ port + domain_path + api_unread_path + tt_rss_username;
-	request.open("GET", url);
-	request.send();
-	request.onreadystatechange = function() {
-		if (request.readyState == 4 && request.status == 200) {
-			count = request.responseText;
-			chrome.browserAction.setBadgeText({text: count});
+	fetch(url)
+		.then(response => {
+			if(!response.ok){
+				throw Error("Http request failed");
+			}else{
+				return response
+			}
+		})
+		.then(response => response.text())
+		.then(validate => validate.replace(/\D/g,''))
+		.then(count => {
+			chrome.action.setBadgeText({text: count});
 			if(callback){
 				callback();
 			}
-		}
-	};
-}
+		})
+		.catch(error => {
+			console.log(error)
+			if(callback){
+				callback();
+			}
+		});
+	}
 
 // when clicked take me to my RSS
-chrome.browserAction.onClicked.addListener(clicked_me)
+chrome.action.onClicked.addListener(clicked_me)
 function clicked_me(){
 	 // if user didnt finish setup, ask to complete
 	if (!settingsExists()) {
