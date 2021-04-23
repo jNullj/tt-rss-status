@@ -53,7 +53,7 @@ function loadSettings(){
 						result.port == undefined ||
 						result.interval == undefined
 					){
-						console.alert('user submited empty fields');
+						console.log('user submited empty fields');
 						// inform user something is wrong
 						alert("Some required settings are missing!");
 					}else{
