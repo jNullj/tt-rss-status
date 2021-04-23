@@ -1,17 +1,17 @@
 function requestPermissions(protocol, domain, port, callback){
-	// ask for permisions for the new domain
+	// ask for permission for the new domain
 	chrome.permissions.request({
 	origins: [protocol +"://"+ domain +":"+ port+"/"]
 	}, granted => {
-		// The callback argument will be true if the user granted the permissions.
+		// The callback argument will be true if the user granted the permission.
 		if (granted) {
-			console.log('permision granted');
+			console.log('permission granted');
 			alert("Settings saved");
 			callback();
 		} else {
-			console.log('user denied permision');
-			alert("Without permision to the site the app can not work");
-			// no callback, dont make reqest as permision denied
+			console.log('user denied permission');
+			alert("Without permission to the site the app can not work");
+			// no callback, dont make reqest as permission denied
 		}
 	});
 }

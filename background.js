@@ -90,7 +90,7 @@ function clicked_me(){
 	if (!settingsExists()) {
 		chrome.tabs.create({url: "options.html"});
 	}else{
-		// if setup is done, bring user to his RSS feed
+		// if setup is done, sends user to the RSS feed
 		// console.log(protocol +"://"+ domain +":"+ port + domain_path);
 		chrome.tabs.create({url: protocol +"://"+ domain +":"+ port + domain_path});
 	}

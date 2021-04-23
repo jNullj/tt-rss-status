@@ -1,7 +1,7 @@
 {
 	"name": "tt-rss status",
 	"version": "1.0",
-	"description": "A simple extention that adds an icon indicating the number of unread rss items in your tiny tiny rss feed and serves as a shortcut to the site",
+	"description": "A simple extension that adds an icon indicating the number of unread rss items in your tiny tiny rss feed and serves as a shortcut to the site",
 	"author": "Jonathan Ketchker",
 	"options_page": "options.html",
 	"action": {
